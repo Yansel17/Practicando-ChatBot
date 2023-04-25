@@ -1,38 +1,6 @@
 import re
 import random
-
-nombre = input("Para empezar, dame tu nombre? :")
-print("muy bien " +nombre +", voy hacerte variar preguntas con respecto a tu ciclo menstrual, para que puedas saber cuando será tu proximo ciclo en que etapa te encuentras y si hay dias de retraso.")
-
-x = 0
-print(isinstance(x,int))
-cicloMenstr = input("Escribe cuando es tu proximo periodo? 'RESPONDE CON UN NUMERO' :")
-print(len(cicloMenstr)) 
-u = len(cicloMenstr)
-print('')
-
-
-for i in range(u):
-    a= (cicloMenstr[i])
-    print(a)
-    y= ord(a)
-    if ( y >=48 and y<=57):
-      x = x + 1
-        
-        
-  
-if (x == u) :
-      print('Es un entero')
-else: 
-      print ('no es entero')
-        
-      
-
-
-
- 
-#nombre = input("Para empezar, dame tu nombre? :")
-
+import Answarer
 
 def get_response(user_input):
     split_message = re.split(r'\s|[,:;.?!-_]\s*', user_input.lower())
@@ -65,12 +33,20 @@ def check_all_messages(message):
             nonlocal highest_prob
             highest_prob[bot_response] = message_probability(message, list_of_words, single_response, required_words)
 
-        response('Hola '+nombre, ['hola', 'klk', 'saludos', 'buenas'], single_response = True)
+        response('Hola', ['hola', 'klk', 'saludos', 'buenas'], single_response = True)
         response('En que te puedo ayudar?', ['Necesito', 'ayuda', 'escuchame', 'dime'], single_response = True)
-        #response('', ['quiero', 'saber', 'cuando', 'ciclo', 'menstrual', 'periodo', 'baja'], single_response = True)
         response('Estoy bien y tu?', ['como', 'estas', 'va', 'vas', 'sientes'], required_words=['como'])
         response('Siempre a la orden', ['gracias', 'te lo agradezco', 'thanks'], single_response=True)
-        response('Tu nombre es : '+nombre, ['nombre', 'mi', 'cual'], single_response = True)
+        response(Answarer.respuesta, Answarer.pregunta, single_response = True)
+        response(Answarer.respuesta1, Answarer.pregunta1, single_response = True)
+        response(Answarer.respuesta2, Answarer.pregunta2, single_response = True)
+        response(Answarer.respuesta3, Answarer.pregunta3, single_response = True)
+        response(Answarer.respuesta4, Answarer.pregunta4, single_response = True)
+        response(Answarer.respuesta5, Answarer.pregunta5, single_response = True)
+        response(Answarer.respuesta6, Answarer.pregunta6, single_response = True)
+        response(Answarer.respuesta7, Answarer.pregunta7, single_response = True)
+        response(Answarer.respuesta8, Answarer.pregunta8, single_response = True)
+        response(Answarer.respuesta9, Answarer.pregunta9, single_response = True)
 
         best_match = max(highest_prob, key=highest_prob.get)
         #print(highest_prob)
